@@ -273,6 +273,7 @@
 				B00100030000000000000002 /* Sources */,
 				B00100030000000000000001 /* Frameworks */,
 				B00100030000000000000003 /* Resources */,
+				B00100030000000000000004 /* Embed ADB */,
 			);
 			buildRules = (
 			);
@@ -326,6 +327,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B00100030000000000000004 /* Embed ADB */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Embed ADB";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(CONTENTS_FOLDER_PATH)/Resources/platform-tools/adb",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/scripts/fetch_platform_tools.sh\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Resources/platform-tools\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B00100030000000000000002 /* Sources */ = {

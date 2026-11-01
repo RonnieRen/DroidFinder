@@ -35,6 +35,7 @@ Output paths:
 
 ## Prerequisites
 
-1. Install `adb` (Android Platform Tools) on your Mac
-2. Enable USB debugging on your Android device
-3. On first connection, tap to allow debugging authorization on your phone
+1. Enable USB debugging on your Android device
+2. On first connection, tap to allow debugging authorization on your phone
+
+`adb` (Android Platform Tools) no longer needs to be installed separately: every build (Xcode Run/Build, `Product -> Archive`, or `scripts/build_dmg.sh`) automatically downloads it via `scripts/fetch_platform_tools.sh` and embeds it inside `DroidFinder.app/Contents/Resources/platform-tools/adb`, so the target machine doesn't need adb installed. If the download fails (e.g. no network at build time), DroidFinder falls back to any `adb` already available on the system (`$ANDROID_HOME`, `$ANDROID_SDK_ROOT`, Homebrew, or `PATH`).

@@ -383,6 +383,13 @@ final class DroidADBService {
         var candidates: [String] = []
         let env = ProcessInfo.processInfo.environment
 
+        // Bundled copy of adb, embedded at build time (see
+        // scripts/fetch_platform_tools.sh) so DroidFinder works out of the
+        // box even on machines without Android Platform Tools installed.
+        if let resourceURL = Bundle.main.resourceURL {
+            candidates.append(resourceURL.appendingPathComponent("platform-tools/adb").path)
+        }
+
         if let fromWhich = try? runRaw(command: "/usr/bin/which", args: ["adb"])
             .trimmingCharacters(in: .whitespacesAndNewlines),
            !fromWhich.isEmpty {
